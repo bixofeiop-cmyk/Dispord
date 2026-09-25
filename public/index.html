@@ -185,6 +185,7 @@
             <span class="username">${msg.user}</span>
             ${msg.role === 'admin' ? '<span class="badge-admin">ADMIN</span>' : ''}
             <span style="color:var(--text-muted); font-size:0.7rem">${msg.time}</span>
+            <script src="/socket.io/socket.io.js"></script>
           </div>
           <div>${msg.text}</div>
         </div>
