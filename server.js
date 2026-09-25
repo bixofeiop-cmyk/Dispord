@@ -6,24 +6,7 @@ const path = require('path');
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-// Exemplo de lógica no server.js
-socket.on('login', ({ username, password }) => {
-  // Se o utilizador não existe nas suas contas guardadas:
-  if (!users[username]) {
-    // Cria a conta automaticamente com a palavra-passe fornecida
-    users[username] = { password: password, role: 'user' };
-    socket.emit('login_success', { username, role: 'user' });
-    console.log(`Nova conta criada: ${username}`);
-  } 
-  // Se a conta já existe, verifica a palavra-passe:
-  else if (users[username].password === password) {
-    socket.emit('login_success', { username, role: users[username].role });
-  } 
-  // Palavra-passe incorreta:
-  else {
-    socket.emit('login_error', 'Senha incorreta!');
-  }
-});
+
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
